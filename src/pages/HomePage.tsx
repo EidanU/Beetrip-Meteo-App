@@ -5,18 +5,21 @@ import getApi from '../commons/services';
 
 const HomePage: React.FC = ()=> {
 
-const [cityNotFound, setCityNotFound] = useState<Boolean>(false);
-    let history: any = useHistory();
+ 
+    // This const will able the display of a text if the vity is not find in the API
+    const [cityNotFound, setCityNotFound] = useState<Boolean>(false);
     const { register, handleSubmit, formState: { errors } } = useForm();
+    //I use the useHystory to redirect the user to a other url
+    let history: any = useHistory();
+
     const onSubmit = (data: any) =>{
-        console.log(data);
-       try{
-            getApi(data.city).then(weather=>{
+            getApi(data.city)
+            .then(weather=>{
                 history.push(`/WeatherPage/${weather.data.name}`);
-            });
-       } catch (error){
-           setCityNotFound(true);
-       }
+            })
+            .catch (()=>{
+                setCityNotFound(true);
+            })
     };
     
     return(
@@ -26,7 +29,7 @@ const [cityNotFound, setCityNotFound] = useState<Boolean>(false);
                     <input defaultValue="Paris" {...register("city")} />
                         {errors.exampleRequired && <span>This field is required</span>}
                     <input type="submit" />
-                    {cityNotFound && <p>Votre ville est introuvable</p>}
+                    {cityNotFound && <p>We can't find you city</p>}
                 </form>
             </div>
         </>

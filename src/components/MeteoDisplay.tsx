@@ -1,3 +1,4 @@
+//Here I use the interface to type the component for a better visibility 
 interface Props{
     bgColor: string, 
     text: string
