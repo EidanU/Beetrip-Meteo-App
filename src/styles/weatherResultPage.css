@@ -1,0 +1,10 @@
+.cold{
+    background-color: #21c3ff;
+    width: 100vw;
+    height: 100vh;
+}
+.hot{
+    background-color: #ff4d21;
+    width: 100vw;
+    height: 100vh;
+}
