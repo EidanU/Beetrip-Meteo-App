@@ -9,17 +9,16 @@ import HomePage from './pages/HomePage';
 function App() {
   return (
     <Router>
-    <Switch>
+      <Switch>
         <Route exact path="/">
             <HomePage/>
         </Route>
         <Route path={`/WeatherPage/`}>
             <WeatherResultPage />
         </Route>
-    </Switch>
-</Router>
-
-);
+      </Switch>
+    </Router>
+  );
 }
 
 export default App;
