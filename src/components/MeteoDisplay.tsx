@@ -1,15 +1,20 @@
 //Here I use the interface to type the component for a better visibility
 interface propsMeteoDisplay {
-  weather: number;
+  weather: any;
 }
+
 const MeteoDisplay: React.FC<propsMeteoDisplay> = ({ weather }) => {
-  let data = weather > 288.15 ? "cold" : "hot";
+  const city: string = weather.name;
+  const temperature: number = Math.round(weather.main.temp - 273.15);
+  const coldOrHot: string = temperature < 15 ? "cold" : "hot";
 
   return (
-    <div className={`container ${data}`}>
+    <div className={`container ${coldOrHot}`}>
       <div className="content">
-        <h1>Meteo page</h1>
-        <h2>it's {data}</h2>
+        <h1>
+          Temperature at {city} : {temperature}°C
+        </h1>
+        <h2>it's {coldOrHot}</h2>
       </div>
     </div>
   );
