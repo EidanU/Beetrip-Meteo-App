@@ -3,13 +3,13 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import getApi from "../commons/services";
 
-// type for the useform
+// type for the useForm
 type myCity = {
   city: string;
 };
 
 const HomePage: React.FC = () => {
-  //I use the useHystory to redirect the user to a other url
+  //I use the useHistory to redirect the user to another url
   let history = useHistory();
 
   // This const will able the display of an error if the city is not find in the API
